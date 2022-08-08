@@ -1,4 +1,5 @@
-﻿using Warehouse.Domain.ValueObjects;
+﻿using Warehouse.Domain.Exceptions;
+using Warehouse.Domain.ValueObjects;
 
 namespace Warehouse.Domain.Entities
 {
@@ -10,13 +11,26 @@ namespace Warehouse.Domain.Entities
 
         private Localization _localization;
 
-        internal PackingList(Guid id, PackingListName name, Localization localization)
+        private readonly LinkedList<PackingItem> _items = new();
+
+        internal PackingList(Guid id, PackingListName name, Localization localization, LinkedList<PackingItem> items)
         {
             this.Id = id;
             this._name = name;
             this._localization = localization;
+            this._items = items;
+        }
+
+        public void AddItem(PackingItem item)
+        {
+            var alreadyExists = this._items.Any(x => x.Name == item.Name);
+
+            if (alreadyExists)
+            {
+                throw new PackingItemAlreadyExistsException(this._name, item.Name);
+            }
+
+            this._items.AddLast(item);
         }
     }
 }
-
-//https://youtu.be/NzcZcim9tp8?t=4742
