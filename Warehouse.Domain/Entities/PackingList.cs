@@ -1,11 +1,12 @@
 ﻿using Warehouse.Domain.Exceptions;
 using Warehouse.Domain.ValueObjects;
+using Warehouse.Shared.Abstractions.Domain;
 
 namespace Warehouse.Domain.Entities
 {
-    public class PackingList
+    public class PackingList : AggregateRoot<Guid>
     {
-        public Guid Id { get; private set; }
+        public PackingListId Id { get; private set; }
 
         private PackingListName _name;
 
