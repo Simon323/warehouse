@@ -15,12 +15,17 @@ namespace Warehouse.Domain.Entities
 
         private readonly LinkedList<PackingItem> _items = new();
 
-        internal PackingList(Guid id, PackingListName name, Localization localization, LinkedList<PackingItem> items)
+        private PackingList(Guid id, PackingListName name, Localization localization, LinkedList<PackingItem> items)
+            : this(id, name, localization)
+        {
+            AddItems(items);
+        }
+
+        internal PackingList(Guid id, PackingListName name, Localization localization)
         {
             Id = id;
             _name = name;
             _localization = localization;
-            //this._items = items;
         }
 
         public void AddItem(PackingItem item)
