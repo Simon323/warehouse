@@ -1,4 +1,5 @@
 ﻿using Microsoft.OpenApi.Models;
+using Warehouse.Application;
 
 namespace Warehouse.Api
 {
@@ -13,6 +14,7 @@ namespace Warehouse.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddApplication();
             services.AddControllers();
 
             services.AddSwaggerGen(c =>
