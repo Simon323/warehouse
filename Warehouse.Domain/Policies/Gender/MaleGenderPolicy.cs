@@ -2,7 +2,7 @@
 
 namespace Warehouse.Domain.Policies.Gender
 {
-    internal class MaleGenderPolicy : IPackingItemPolicy
+    internal class MaleGenderPolicy : IPackingItemsPolicy
     {
         public IEnumerable<PackingItem> GenerateItems(PolicyData data) => new List<PackingItem>
         {

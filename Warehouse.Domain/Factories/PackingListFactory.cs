@@ -1,19 +1,28 @@
 ﻿using Warehouse.Domain.Consts;
 using Warehouse.Domain.Entities;
+using Warehouse.Domain.Policies;
 using Warehouse.Domain.ValueObjects;
 
 namespace Warehouse.Domain.Factories
 {
-    public class PackingListFactory : IPackingListFactory
+    public sealed class PackingListFactory : IPackingListFactory
     {
-        public PackingList Create(PackingListId id, PackingListName name, Localization localization)
-        {
-            throw new NotImplementedException();
-        }
+        private readonly IEnumerable<IPackingItemsPolicy> _policies;
+
+        public PackingListFactory(IEnumerable<IPackingItemsPolicy> policies) => _policies = policies;
+
+        public PackingList Create(PackingListId id, PackingListName name, Localization localization) => new(id, name, localization);
 
         public PackingList CreateWithDefaultItems(PackingListId id, PackingListName name, TravelDays days, Gender gender, Temperature temperature, Localization localization)
         {
-            throw new NotImplementedException();
+            var data = new PolicyData(days, gender, temperature, localization);
+            var applicablePolicies = _policies.Where(p => p.IsApplicable(data));
+
+            var items = applicablePolicies.SelectMany(p => p.GenerateItems(data));
+            var packingList = Create(id, name, localization);
+
+            packingList.AddItems(items);
+            return packingList;
         }
     }
 }
