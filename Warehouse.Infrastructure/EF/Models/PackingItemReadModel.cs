@@ -1,6 +1,6 @@
 ﻿namespace Warehouse.Infrastructure.EF.Models
 {
-    public class PackingItemReadModel
+    internal class PackingItemReadModel
     {
         public Guid Id { get; set; }
 

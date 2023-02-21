@@ -1,6 +1,6 @@
 ﻿namespace Warehouse.Infrastructure.EF.Models
 {
-    public class LocalizationReadModel
+    internal class LocalizationReadModel
     {
         public string City { get; set; }
 
