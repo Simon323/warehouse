@@ -18,7 +18,8 @@ namespace Warehouse.Domain.Entities
         private PackingList(Guid id, PackingListName name, Localization localization, LinkedList<PackingItem> items)
             : this(id, name, localization)
         {
-            AddItems(items);
+            //AddItems(items);
+            _items = items;
         }
 
         internal PackingList(Guid id, PackingListName name, Localization localization)

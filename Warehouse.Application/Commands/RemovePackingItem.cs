@@ -2,5 +2,5 @@
 
 namespace Warehouse.Application.Commands
 {
-    public record RemovePackingItem(Guid PackingListItem, string Name) : ICommand;
+    public record RemovePackingItem(Guid PackingListId, string Name) : ICommand;
 }

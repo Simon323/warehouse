@@ -2,5 +2,5 @@
 
 namespace Warehouse.Application.Commands
 {
-    public record AddPackingItem(Guid PackingListItem, string Name, uint Quantity) : ICommand;
+    public record AddPackingItem(Guid PackingListId, string Name, uint Quantity) : ICommand;
 }
