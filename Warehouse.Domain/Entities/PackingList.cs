@@ -5,7 +5,7 @@ using Warehouse.Shared.Abstractions.Domain;
 
 namespace Warehouse.Domain.Entities
 {
-    public class PackingList : AggregateRoot<Guid>
+    public class PackingList : AggregateRoot<PackingListId>
     {
         public PackingListId Id { get; private set; }
 
@@ -15,14 +15,18 @@ namespace Warehouse.Domain.Entities
 
         private readonly LinkedList<PackingItem> _items = new();
 
-        private PackingList(Guid id, PackingListName name, Localization localization, LinkedList<PackingItem> items)
+        private PackingList(PackingListId id, PackingListName name, Localization localization, LinkedList<PackingItem> items)
             : this(id, name, localization)
         {
             //AddItems(items);
             _items = items;
         }
 
-        internal PackingList(Guid id, PackingListName name, Localization localization)
+        private PackingList()
+        {
+        }
+
+        internal PackingList(PackingListId id, PackingListName name, Localization localization)
         {
             Id = id;
             _name = name;
