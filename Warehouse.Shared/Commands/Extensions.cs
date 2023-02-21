@@ -1,9 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using Warehouse.Shared.Abstractions.Commands;
-using Warehouse.Shared.Commands;
 
-namespace Warehouse.Shared
+namespace Warehouse.Shared.Commands
 {
     public static class Extensions
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Warehouse.Domain.Factories;
 using Warehouse.Domain.Policies;
-using Warehouse.Shared;
+using Warehouse.Shared.Commands;
 
 namespace Warehouse.Application
 {
