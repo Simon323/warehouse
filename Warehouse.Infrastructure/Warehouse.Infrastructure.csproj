@@ -15,4 +15,8 @@
     <ProjectReference Include="..\Warehouse.Application\Warehouse.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="EF\" />
+  </ItemGroup>
+
 </Project>
