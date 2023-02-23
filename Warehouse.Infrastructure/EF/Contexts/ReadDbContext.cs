@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Warehouse.Infrastructure.EF.Config;
 using Warehouse.Infrastructure.EF.Models;
 
 namespace Warehouse.Infrastructure.EF.Contexts
@@ -15,7 +16,10 @@ namespace Warehouse.Infrastructure.EF.Contexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema("packing");
-            base.OnModelCreating(modelBuilder);
+
+            var configuration = new ReadConfiguration();
+            modelBuilder.ApplyConfiguration<PackingListReadModel>(configuration);
+            modelBuilder.ApplyConfiguration<PackingItemReadModel>(configuration);
         }
     }
 }

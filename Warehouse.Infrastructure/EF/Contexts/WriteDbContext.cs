@@ -1,6 +1,26 @@
-﻿namespace Warehouse.Infrastructure.EF.Contexts
+﻿using Microsoft.EntityFrameworkCore;
+using Warehouse.Domain.Entities;
+using Warehouse.Domain.ValueObjects;
+using Warehouse.Infrastructure.EF.Config;
+
+namespace Warehouse.Infrastructure.EF.Contexts
 {
-    public class WriteDbContext
+    internal sealed class WriteDbContext : DbContext
     {
+        public DbSet<PackingList> PackingList { get; set; }
+
+        public WriteDbContext(DbContextOptions<WriteDbContext> options)
+            : base(options)
+        {
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.HasDefaultSchema("packing");
+
+            var configuration = new WriteConfiguration();
+            modelBuilder.ApplyConfiguration<PackingList>(configuration);
+            modelBuilder.ApplyConfiguration<PackingItem>(configuration);
+        }
     }
 }
