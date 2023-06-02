@@ -1,6 +1,4 @@
-﻿using Warehouse.Domain.ValueObjects;
-
-namespace Warehouse.Application.DTO
+﻿namespace Warehouse.Application.DTO
 {
     public class PackingListDto
     {
@@ -8,7 +6,7 @@ namespace Warehouse.Application.DTO
 
         public string Name { get; set; }
 
-        public Localization Localization { get; set; }
+        public LocalizationDto Localization { get; set; }
 
         public IEnumerable<PackingItemDto> Items { get; set; }
     }
