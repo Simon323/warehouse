@@ -5,7 +5,7 @@ using Warehouse.Infrastructure.EF.Contexts;
 using Warehouse.Infrastructure.EF.Models;
 using Warehouse.Shared.Abstractions.Queries;
 
-namespace Warehouse.Infrastructure.Queries.Handlers
+namespace Warehouse.Infrastructure.EF.Queries.Handlers
 {
     internal sealed class SearchPackingListsHandler : IQueryHandler<SearchPackingLists, IEnumerable<PackingListDto>>
     {

@@ -1,7 +1,7 @@
 ﻿using Warehouse.Application.DTO;
 using Warehouse.Infrastructure.EF.Models;
 
-namespace Warehouse.Infrastructure.Queries
+namespace Warehouse.Infrastructure.EF.Queries
 {
     internal static class Extensions
     {
