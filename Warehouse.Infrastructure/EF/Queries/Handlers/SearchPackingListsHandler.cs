@@ -12,7 +12,7 @@ namespace Warehouse.Infrastructure.EF.Queries.Handlers
         private readonly DbSet<PackingListReadModel> _packingLists;
 
         public SearchPackingListsHandler(ReadDbContext context)
-            => _packingLists = context.PackingList;
+            => _packingLists = context.PackingLists;
 
         public async Task<IEnumerable<PackingListDto>> HandleAsync(SearchPackingLists query)
         {

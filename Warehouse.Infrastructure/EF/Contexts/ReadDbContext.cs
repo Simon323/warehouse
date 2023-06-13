@@ -6,7 +6,7 @@ namespace Warehouse.Infrastructure.EF.Contexts
 {
     internal sealed class ReadDbContext : DbContext
     {
-        public DbSet<PackingListReadModel> PackingList { get; set; }
+        public DbSet<PackingListReadModel> PackingLists { get; set; }
 
         public ReadDbContext(DbContextOptions<ReadDbContext> options)
             : base(options)
