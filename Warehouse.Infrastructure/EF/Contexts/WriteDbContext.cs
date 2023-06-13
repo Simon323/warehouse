@@ -7,7 +7,7 @@ namespace Warehouse.Infrastructure.EF.Contexts
 {
     internal sealed class WriteDbContext : DbContext
     {
-        public DbSet<PackingList> PackingList { get; set; }
+        public DbSet<PackingList> PackingLists { get; set; }
 
         public WriteDbContext(DbContextOptions<WriteDbContext> options)
             : base(options)
