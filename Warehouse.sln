@@ -19,6 +19,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Warehouse.Application", "Wa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Warehouse.Api", "Warehouse.Api\Warehouse.Api.csproj", "{3F4E3EE5-6AE2-49F3-9329-7CC337F8CFE3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{533EE04F-4488-43AB-A064-FF28BDD9FA59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warehouse.UnitTests", "Warehouse.UnitTests\Warehouse.UnitTests.csproj", "{3A6DBAB2-A691-4E97-ADFE-E88CE4B5EBC9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +53,10 @@ Global
 		{3F4E3EE5-6AE2-49F3-9329-7CC337F8CFE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F4E3EE5-6AE2-49F3-9329-7CC337F8CFE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F4E3EE5-6AE2-49F3-9329-7CC337F8CFE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A6DBAB2-A691-4E97-ADFE-E88CE4B5EBC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A6DBAB2-A691-4E97-ADFE-E88CE4B5EBC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A6DBAB2-A691-4E97-ADFE-E88CE4B5EBC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A6DBAB2-A691-4E97-ADFE-E88CE4B5EBC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +69,7 @@ Global
 		{5ABE3205-7AAE-44BE-97AD-16AA27E81A64} = {F5BF63EA-7BF5-4CCB-A962-45B28DDE0AF2}
 		{5C3330EE-39F6-4D04-A662-DB8592C2A952} = {F5BF63EA-7BF5-4CCB-A962-45B28DDE0AF2}
 		{3F4E3EE5-6AE2-49F3-9329-7CC337F8CFE3} = {F5BF63EA-7BF5-4CCB-A962-45B28DDE0AF2}
+		{3A6DBAB2-A691-4E97-ADFE-E88CE4B5EBC9} = {533EE04F-4488-43AB-A064-FF28BDD9FA59}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9BBDE4C7-D5D2-4BA8-BDDA-700B2F5998CB}
