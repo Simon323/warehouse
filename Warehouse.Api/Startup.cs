@@ -1,6 +1,7 @@
 ﻿using Microsoft.OpenApi.Models;
 using Warehouse.Application;
 using Warehouse.Infrastructure;
+using Warehouse.Shared;
 
 namespace Warehouse.Api
 {
@@ -15,6 +16,7 @@ namespace Warehouse.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddShared();
             services.AddApplication();
             services.AddInfrastructure(Configuration);
             services.AddControllers();
