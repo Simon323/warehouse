@@ -1,5 +1,6 @@
 ﻿using Shouldly;
 using Warehouse.Domain.Entities;
+using Warehouse.Domain.Events;
 using Warehouse.Domain.Exceptions;
 using Warehouse.Domain.Factories;
 using Warehouse.Domain.Policies;
@@ -19,8 +20,28 @@ namespace Warehouse.UnitTests.Domain
             // ACT
             var exception = Record.Exception(() => packingList.AddItem(new PackingItem("Item 1", 1)));
 
+            // ASSERT
             exception.ShouldNotBeNull();
             exception.ShouldBeOfType<PackingItemAlreadyExistsException>();
+        }
+
+        [Fact]
+        public void AddItem_Adds_PackingItemAdded_Domain_Event_On_Success()
+        {
+            // ARRANGE
+            var packingList = GetPackingList();
+
+            // ACT
+            var exception = Record.Exception(() => packingList.AddItem(new PackingItem("Item 1", 1)));
+
+            // ASSERT
+            exception.ShouldBeNull();
+            packingList.Events.Count().ShouldBe(1);
+
+            var @event = packingList.Events.FirstOrDefault() as PackingItemAdded;
+
+            @event.ShouldNotBeNull();
+            @event.PackingItem.Name.ShouldBe("Item 1");
         }
 
         #region ARRANGE
