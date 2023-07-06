@@ -10,7 +10,7 @@ namespace Warehouse.Application
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             services.AddCommands();
-            services.AddSingleton<IPackingListFactory, IPackingListFactory>();
+            services.AddSingleton<IPackingListFactory, PackingListFactory>();
 
             services.Scan(x => x.FromAssemblies(typeof(IPackingItemsPolicy).Assembly)
                 .AddClasses(x => x.AssignableTo<IPackingItemsPolicy>())
